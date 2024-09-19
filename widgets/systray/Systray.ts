@@ -14,17 +14,18 @@ const SystemTrayItem = (item: TrayItem) =>
 
 const SystemTrayPanel = () =>
   Widget.Box({
-    spacing: 6,
-    class_name: "system-tray",
+    spacing: 8,
     homogeneous: true,
+    hpack: "center",
     children: systemtray.bind("items").as((item) => item.map(SystemTrayItem)),
   });
 
 const Systray = (monitor = 0) =>
   Widget.Window({
+    class_name: "system-tray",
     name: `systray${monitor}`,
     anchor: ["top", "right"],
-    margins: [40, 115, 0, 0],
+    margins: [45, 115, 0, 0],
     exclusivity: "ignore",
     visible: SystemTrayToggle.bind(),
     child: SystemTrayPanel(),

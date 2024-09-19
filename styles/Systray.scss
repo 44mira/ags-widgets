@@ -1,7 +1,10 @@
 
 .system-tray {
-  border: 2px solid $bgLight; 
-  border-radius: 9999em;
-  padding: 0.4em 0.8em;
-  background-color: $bgDark;
+  box {
+    background-color: $bgDark;
+    border: 2px solid $bgLight; 
+    border-radius: 1em;
+    padding: 0.4em 0.8em;
+    min-width: 10em;
+  }
 }
