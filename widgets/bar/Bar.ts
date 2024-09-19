@@ -7,6 +7,8 @@ const hyprland = await Service.import("hyprland");
 const FocusedTitle = () =>
   Widget.Label({
     class_name: "focused-title",
+    truncate: "end",
+    max_width_chars: 30,
   }).hook(hyprland.active.client, (self) => {
     self.label =
       hyprland.active.client.title !== ""
