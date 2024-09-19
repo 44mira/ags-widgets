@@ -32,7 +32,10 @@
     }
 
     button.toggled {
-        background-color: rgba($bgDark, 0.4);
+      background-color: rgba($bgDark, 0.4);
+      border-radius: 9999em 9999em 0em 0em;
+      transition-property: border-radius;
+      transition-duration: 600ms;
     }
   }
 
