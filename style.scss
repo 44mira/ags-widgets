@@ -1,0 +1,50 @@
+$primary: #ab343f;
+$secondary: #a8a8b1;
+$accent: #e8e8eb;
+$bgLight: #3b3a4e;
+$bgDark: #231e2b;
+
+/* @import "./widgets/bar/Bar.scss" */
+
+* {
+  all: unset; 
+  font-family: CommitMono Nerd Font;
+}
+
+/* [[ Bar ]] {{{ */
+
+.centerbox-bar {
+  padding: 0.4em 0.7em;
+  padding-bottom: 0em;
+
+  .focused-title {
+    border: 2px solid $bgLight; 
+    border-radius: 9999em;
+    padding: 0.4em 0.8em;
+    background-color: $bgDark;
+  }
+
+  .focused-workspace {
+    color: $primary;
+  }
+
+  .workspaces {
+    button {
+      border: 1px solid $bgLight; 
+      border-radius: 9999em;
+      padding: 0.4em 1em;
+      background-color: $bgDark;
+    }
+  }
+
+  .side-info {
+    .segment {
+      border: 2px solid $bgLight; 
+      border-radius: 9999em;
+      padding: 0.4em 0.8em;
+      background-color: $bgDark;
+    }
+  }
+}
+
+/* }}} */
