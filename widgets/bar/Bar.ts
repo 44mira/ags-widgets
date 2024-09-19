@@ -1,5 +1,6 @@
 import Battery from "./side-info/Battery";
 import Time from "./side-info/Time";
+import Ram from "./side-info/Ram";
 import Workspaces from "./Workspaces";
 import { SystemTrayToggle } from "widgets/systray/Systray";
 
@@ -33,7 +34,7 @@ const SideInfo = () =>
     class_name: "side-info",
     hpack: "end",
     spacing: 8,
-    children: [Time(), SystrayToggleButton(), Battery()],
+    children: [Ram(), Time(), SystrayToggleButton(), Battery()],
   });
 
 export default (monitor: number) =>
