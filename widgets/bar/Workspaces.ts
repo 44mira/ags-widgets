@@ -8,7 +8,7 @@ const Workspaces = () => {
   const workspaces = range(9, 1).map((i) =>
     Widget.Button({
       label: `${i}`,
-      onClicked: () => hyprland.messageAsync(`dispatch workspace ${i}`),
+      on_clicked: () => hyprland.messageAsync(`dispatch workspace ${i}`),
       class_name: activeWorkspace.as(
         (active) => `${active === i ? "focused-workspace" : ""}`,
       ),

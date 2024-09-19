@@ -1,6 +1,7 @@
 import Battery from "./side-info/Battery";
 import Time from "./side-info/Time";
 import Workspaces from "./Workspaces";
+import { SystemTrayToggle } from "widgets/systray/Systray";
 
 const hyprland = await Service.import("hyprland");
 
@@ -16,12 +17,23 @@ const FocusedTitle = () =>
         : " ";
   });
 
+const SystrayToggleButton = () =>
+  Widget.ToggleButton({
+    class_name: "segment",
+    css: "padding-left: 0.5em",
+    child: Widget.Label("  "),
+    on_toggled: (self) => {
+      SystemTrayToggle.value = !SystemTrayToggle.value;
+      self.toggleClassName("toggled", self.active);
+    },
+  });
+
 const SideInfo = () =>
   Widget.Box({
     class_name: "side-info",
     hpack: "end",
     spacing: 8,
-    children: [Time(), Battery()],
+    children: [Time(), SystrayToggleButton(), Battery()],
   });
 
 export default (monitor: number) =>
