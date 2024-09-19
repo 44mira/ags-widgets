@@ -16,19 +16,15 @@
 
   .workspaces {
     button {
-      border: 1px solid $bgLight; 
-      border-radius: 9999em;
+      @include rounded-segment
       padding: 0.4em 1em;
-      background-color: $bgDark;
     }
   }
 
   .side-info {
     .segment {
-      border: 2px solid $bgLight; 
-      border-radius: 9999em;
+      @include rounded-segment
       padding: 0.4em 0.8em;
-      background-color: $bgDark;
     }
 
     button.toggled {
@@ -40,15 +36,6 @@
   }
 
   .workspaces, .side-info {
-    button {
-      &:hover {
-        background-color: rgba($bgDark, 0.4);
-      }
-      
-      &:active {
-        background-color:  rgba($bgDark, 0.8);
-      }
-
-    }
+    @include button
   }
 }

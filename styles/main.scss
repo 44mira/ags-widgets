@@ -4,6 +4,7 @@ $accent: #e8e8eb;
 $bgLight: #3b3a4e;
 $bgDark: #231e2b;
 
+@import "mixins.scss";
 @import "Bar.scss";
 @import "Systray.scss";
 

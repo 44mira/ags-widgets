@@ -1,10 +1,26 @@
 
 .system-tray {
   box {
-    background-color: $bgDark;
-    border: 2px solid $bgLight; 
-    border-radius: 1em;
+    @include rounded-segment(1em);
     padding: 0.4em 0.8em;
     min-width: 10em;
+  }
+}
+
+window.popup {
+  menu {
+    background-color: rgba($bgDark, 0.9);
+    border: 2px dotted $bgLight;
+    border-radius: 1em;
+    padding: 0.5em 1em;
+
+    separator {
+      background-color: rgba($bgLight, 1);
+    }
+
+    menuitem {
+      padding: 0.6em 0.2em;
+      margin: 0.3em 0em;
+    }
   }
 }

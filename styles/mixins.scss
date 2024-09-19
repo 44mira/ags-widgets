@@ -1,0 +1,18 @@
+@mixin button() {
+  button {
+    &:hover {
+      background-color: rgba($bgDark, 0.4);
+    }
+    
+    &:active {
+      background-color:  rgba($bgDark, 0.8);
+    }
+  }
+}
+
+@mixin rounded-segment($roundness: 9999em) {
+  background-color: $bgDark;
+  border: 2px solid $bgLight; 
+  border-radius: $roundness;
+
+}
