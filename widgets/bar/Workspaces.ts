@@ -1,4 +1,4 @@
-import { range } from "utils";
+import { range } from "lib/utils";
 
 const hyprland = await Service.import("hyprland");
 

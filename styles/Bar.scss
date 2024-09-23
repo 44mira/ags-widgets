@@ -1,5 +1,6 @@
 
 .centerbox-bar {
+  color: $text;
   padding: 0.4em 0.7em;
   padding-bottom: 0em;
 
@@ -16,14 +17,14 @@
 
   .workspaces {
     button {
-      @include rounded-segment
+      @include rounded-segment;
       padding: 0.4em 1em;
     }
   }
 
   .side-info {
     .segment {
-      @include rounded-segment
+      @include rounded-segment;
       padding: 0.4em 0.8em;
     }
 
@@ -36,6 +37,6 @@
   }
 
   .workspaces, .side-info {
-    @include button
+    @include button;
   }
 }

@@ -3,6 +3,7 @@ $secondary: #a8a8b1;
 $accent: #e8e8eb;
 $bgLight: #3b3a4e;
 $bgDark: #231e2b;
+$text: #f6e7d8;
 
 @import "mixins.scss";
 @import "Bar.scss";
@@ -12,4 +13,5 @@ $bgDark: #231e2b;
   all: unset; 
   font-family: CommitMono Nerd Font;
 }
+
 

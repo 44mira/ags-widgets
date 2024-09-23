@@ -2,6 +2,8 @@ import Battery from "./side-info/Battery";
 import Time from "./side-info/Time";
 import Ram from "./side-info/Ram";
 import Workspaces from "./Workspaces";
+import Volume from "./side-info/Volume";
+import Brightness from "./side-info/Brightness";
 import { SystemTrayToggle } from "widgets/systray/Systray";
 
 const hyprland = await Service.import("hyprland");
@@ -10,7 +12,7 @@ const FocusedTitle = () =>
   Widget.Label({
     class_name: "focused-title",
     truncate: "end",
-    max_width_chars: 30,
+    max_width_chars: 50,
   }).hook(hyprland.active.client, (self) => {
     self.label =
       hyprland.active.client.title !== ""
@@ -34,7 +36,16 @@ const SideInfo = () =>
     class_name: "side-info",
     hpack: "end",
     spacing: 8,
-    children: [Ram(), Time(), SystrayToggleButton(), Battery()],
+    children: [
+      Ram(),
+      Time(),
+      Widget.Box({
+        class_name: "segment",
+        children: [Volume(), Widget.Label("  "), Brightness()],
+      }),
+      SystrayToggleButton(),
+      Battery(),
+    ],
   });
 
 export default (monitor: number) =>
