@@ -1,18 +1,20 @@
 @mixin button() {
-  button {
-    &:hover {
-      background-color: rgba($bgDark, 0.4);
-    }
-    
-    &:active {
-      background-color:  rgba($bgDark, 0.8);
-    }
+  &:hover {
+    background-color: rgba($primary, 0.2);
+  }
+  
+  &:active {
+    background-color:  rgba($bgDark, 0.8);
   }
 }
 
-@mixin rounded-segment($roundness: 9999em) {
-  background-color: $bgDark;
+@mixin rounded-segment($roundness: 1em, $opacity: 1) {
+  background-color: rgba($bgDark, $opacity);
   border: 2px solid $bgLight; 
   border-radius: $roundness;
 
+}
+
+@mixin pop-shadow() {
+  box-shadow: 10px 10px 3px 0px rgba(black, 0.5)
 }

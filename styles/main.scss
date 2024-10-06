@@ -1,13 +1,23 @@
-$primary: #ab343f;
-$secondary: #a8a8b1;
-$accent: #e8e8eb;
-$bgLight: #3b3a4e;
-$bgDark: #231e2b;
-$text: #f6e7d8;
+// helltaker
+/* $primary: #ab343f; */
+/* $secondary: #a8a8b1; */
+/* $accent: #e8e8eb; */
+/* $bgLight: #3b3a4e; */
+/* $bgDark: #231e2b; */
+/* $text: #f6e7d8; */
+
+// nightsky
+$primary: #82aac3;
+$secondary: #5b2c4e;
+$accent: #eb836a;
+$bgLight: #4a4b69;
+$bgDark: #201a24;
+$text: #f6edb6;
 
 @import "mixins.scss";
 @import "Bar.scss";
 @import "Systray.scss";
+@import "Powermenu.scss";
 
 * {
   all: unset; 

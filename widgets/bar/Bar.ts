@@ -31,6 +31,12 @@ const SystrayToggleButton = () =>
     },
   });
 
+const VolumeAndBrightness = () =>
+  Widget.Box({
+    class_name: "segment",
+    children: [Volume(), Widget.Label("  "), Brightness()],
+  });
+
 const SideInfo = () =>
   Widget.Box({
     class_name: "side-info",
@@ -39,10 +45,7 @@ const SideInfo = () =>
     children: [
       Ram(),
       Time(),
-      Widget.Box({
-        class_name: "segment",
-        children: [Volume(), Widget.Label("  "), Brightness()],
-      }),
+      VolumeAndBrightness(),
       SystrayToggleButton(),
       Battery(),
     ],

@@ -1,0 +1,54 @@
+$panelHeight: 496px;
+$panelWidth: 838px;
+
+.powermenu-window {
+  @include rounded-segment(1em, 0.7);
+
+  .panel {
+    min-height: $panelHeight;
+    min-width: $panelWidth;
+  }
+
+  .uptime, .update-check {
+    @include pop_shadow;
+    @include rounded_segment(0.5em);
+
+    color: $text;
+    padding: 28px;
+    font-size: 24px;
+  }
+
+  .update-check {
+    color: $accent;
+  }
+
+  .uptime {
+    color: $primary;
+  }
+
+
+  .powermenu-button {
+    button {
+      @include rounded-segment(0.3em);
+      @include pop-shadow();
+      @include button();
+
+      font-size: 64px;
+      min-height: 169px;
+      min-width: 169px;
+      color: $primary;
+
+      label.shutdown {
+        padding-left: 20px;
+      }
+    }
+
+    & > label {
+      color: $text;
+    }
+
+    .shutdown {
+      color: $accent;
+    }
+  }
+}
