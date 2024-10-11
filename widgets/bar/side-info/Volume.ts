@@ -26,7 +26,7 @@ const VolumePercent = () =>
   });
 
 const Volume = () =>
-  Widget.Button({
+  Widget.Box({
     child: Widget.Box({
       spacing: 4,
       children: [VolumeIcon(), VolumePercent()],
