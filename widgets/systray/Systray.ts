@@ -2,8 +2,6 @@ import { TrayItem } from "types/service/systemtray";
 
 const systemtray = await Service.import("systemtray");
 
-export const SystemTrayToggle = Variable(false);
-
 const SystemTrayItem = (item: TrayItem) =>
   Widget.Button({
     child: Widget.Icon({ size: 30 }).bind("icon", item, "icon"),
@@ -27,7 +25,7 @@ const Systray = (monitor = 0) =>
     anchor: ["top", "right"],
     margins: [45, 115, 0, 0],
     exclusivity: "ignore",
-    visible: SystemTrayToggle.bind(),
+    visible: false,
     child: SystemTrayPanel(),
   });
 

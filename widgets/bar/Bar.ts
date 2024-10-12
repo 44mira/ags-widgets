@@ -4,7 +4,6 @@ import Ram from "./side-info/Ram";
 import Workspaces from "./Workspaces";
 import Volume from "./side-info/Volume";
 import Brightness from "./side-info/Brightness";
-import { SystemTrayToggle } from "widgets/systray/Systray";
 
 const hyprland = await Service.import("hyprland");
 
@@ -20,13 +19,13 @@ const FocusedTitle = () =>
         : " ";
   });
 
-const SystrayToggleButton = () =>
+const SystrayToggleButton = (monitor: number) =>
   Widget.ToggleButton({
     class_name: "segment",
     css: "padding-left: 0.5em",
     child: Widget.Label("  "),
     on_toggled: (self) => {
-      SystemTrayToggle.value = !SystemTrayToggle.value;
+      App.toggleWindow(`systray${monitor}`);
       self.toggleClassName("toggled", self.active);
     },
   });
@@ -37,7 +36,7 @@ const VolumeAndBrightness = () =>
     children: [Volume(), Widget.Label("  "), Brightness()],
   });
 
-const SideInfo = () =>
+const SideInfo = (monitor: number) =>
   Widget.Box({
     class_name: "side-info",
     hpack: "end",
@@ -46,7 +45,7 @@ const SideInfo = () =>
       Ram(),
       Time(),
       VolumeAndBrightness(),
-      SystrayToggleButton(),
+      SystrayToggleButton(monitor),
       Battery(),
     ],
   });
@@ -61,6 +60,6 @@ export default (monitor: number) =>
       class_name: "centerbox-bar",
       start_widget: Workspaces(),
       center_widget: FocusedTitle(),
-      end_widget: SideInfo(),
+      end_widget: SideInfo(monitor),
     }),
   });
