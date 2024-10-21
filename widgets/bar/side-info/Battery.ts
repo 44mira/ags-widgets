@@ -19,8 +19,29 @@ const Battery = () => {
   };
 
   const BatteryPercent = () =>
-    Widget.Label().hook(battery, (self) => {
-      self.label = `${battery.charging ? "󰂅 " : "󰂁 "}${battery.percent}%`;
+    Widget.Label({
+      label: battery.bind("percent").as((percent) => `${percent}%`),
+    });
+
+  const BatteryIcon = () =>
+    Widget.Icon({
+      size: 20,
+    }).hook(battery, (self) => {
+      // self.icon = battery.charging
+      //   ? "battery-empty-charging-symbolic"
+      //   : "battery-good-symbolic";
+
+      if (battery.charging) {
+        self.icon = "battery-empty-charging-symbolic";
+        return;
+      }
+
+      if (battery.percent == 100) {
+        self.icon = "battery-full-symbolic";
+        return;
+      }
+
+      self.icon = "battery-good-symbolic";
     });
 
   const BatteryProgress = () =>
@@ -38,7 +59,7 @@ const Battery = () => {
     homogeneous: false,
     spacing: 5,
     class_name: "segment",
-    children: [BatteryPercent(), BatteryProgress()],
+    children: [BatteryIcon(), BatteryPercent(), BatteryProgress()],
   });
 };
 

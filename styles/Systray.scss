@@ -13,6 +13,7 @@ window.popup {
     border: 2px dotted $bgLight;
     border-radius: 1em;
     padding: 0.5em 1em;
+    color: $text;
 
     separator {
       background-color: rgba($bgLight, 1);

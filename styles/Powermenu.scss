@@ -2,7 +2,7 @@ $panelHeight: 496px;
 $panelWidth: 838px;
 
 .powermenu-window {
-  @include rounded-segment(1em, 0.7);
+  @include rounded-segment(1em, 0.80);
 
   .panel {
     min-height: $panelHeight;

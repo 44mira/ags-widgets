@@ -7,11 +7,19 @@
 /* $text: #f6e7d8; */
 
 // nightsky
-$primary: #82aac3;
-$secondary: #5b2c4e;
-$accent: #eb836a;
-$bgLight: #4a4b69;
-$bgDark: #201a24;
+/* $primary: #82aac3; */
+/* $secondary: #5b2c4e; */
+/* $accent: #eb836a; */
+/* $bgLight: #4a4b69; */
+/* $bgDark: #201a24; */
+/* $text: #f6edb6; */
+
+// rainyday
+$primary: #4B5CA3;
+$secondary: #20362A;
+$accent: #e97c63;
+$bgLight: #25403F;
+$bgDark: #101920;
 $text: #f6edb6;
 
 @import "mixins.scss";
@@ -24,4 +32,11 @@ $text: #f6edb6;
   font-family: CommitMono Nerd Font;
 }
 
+tooltip {
+  @include rounded-segment;
 
+  label {
+    color: $text;
+    padding: 0.5em;
+  }
+}
