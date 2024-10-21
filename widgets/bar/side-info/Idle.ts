@@ -12,12 +12,10 @@ const Idle = () =>
     tooltip_text: hypridle
       .bind("is_active")
       .as((is_active) => (is_active ? "Will idle" : "Won't idle")),
-    setup: (self) =>
-      self.hook(
-        hypridle,
-        (self) =>
-          (self.on_clicked = () => (hypridle.is_active = !hypridle.is_active)),
-      ),
-  });
+  }).hook(
+    hypridle,
+    (self) =>
+      (self.on_clicked = () => (hypridle.is_active = !hypridle.is_active)),
+  );
 
 export default Idle;

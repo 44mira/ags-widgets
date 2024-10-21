@@ -1,5 +1,3 @@
-const getState = () => Utils.exec("pgrep hypridle");
-
 class HypridleService extends Service {
   static {
     Service.register(
@@ -30,6 +28,7 @@ class HypridleService extends Service {
 
   constructor() {
     super();
+    const getState = () => Utils.exec("pgrep hypridle");
 
     // poll on existence of hypridle
     Utils.interval(1000, () => {
