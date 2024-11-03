@@ -1,0 +1,14 @@
+.cheatsheet-window {
+  @include rounded-segment(1em, 1.0);
+
+  .panel {
+    min-height: 800px;
+    min-width: 1200px;
+    padding: 2em;
+  }
+
+  .content {
+    color: $text;
+    font-size: 17px;
+  }
+}

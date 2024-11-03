@@ -61,7 +61,7 @@ export default (monitor: number) =>
     child: Widget.CenterBox({
       class_name: "centerbox-bar",
       start_widget: Widget.Box({
-        spacing: 24,
+        spacing: 8,
         children: [Workspaces(), FocusedTitle()],
       }),
       end_widget: SideInfo(monitor),
