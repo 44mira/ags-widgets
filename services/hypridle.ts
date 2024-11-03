@@ -30,15 +30,15 @@ class HypridleService extends Service {
     super();
     const getState = () => Utils.exec("pgrep hypridle");
 
-    // poll on existence of hypridle
-    Utils.interval(1000, () => {
-      const state = Boolean(getState());
-
-      if (state != this.#isActive) {
-        this.#isActive = state;
-        this.changed("is-active");
-      }
-    });
+    // poll on existence of hypridle (optional, only if hypridle is modified externally)
+    // Utils.interval(10000, () => {
+    //   const state = Boolean(getState());
+    //
+    //   if (state != this.#isActive) {
+    //     this.#isActive = state;
+    //     this.changed("is-active");
+    //   }
+    // });
 
     // initialize
     this.#isActive = Boolean(getState());
