@@ -44,6 +44,7 @@ def main():
             name = line[2:]
 
         elif line[:4] == "bind":
+            # parse the keybind
             line = line.split("=")[1].split(",")[:2]
             binding = " + ".join(
                 re.sub(r"\$mainMod", "MOD", token.strip())
@@ -58,6 +59,7 @@ def main():
 
             section["keybinds"].append(keybind)
 
+    keybindings.append(section)
     return json.dumps(keybindings)
 
 
