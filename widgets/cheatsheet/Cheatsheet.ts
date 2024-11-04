@@ -7,11 +7,12 @@ const getJSON = () => Utils.exec(parserPath, (out) => JSON.parse(out));
 const CheatsheetJSON: Var<Section[]> = Variable(getJSON());
 
 // monitor keybindings for changes
-Utils.monitorFile("~/.config/hypr/keybindings.conf", () =>
-  CheatsheetJSON.setValue(getJSON()),
-);
+Utils.monitorFile(App.configDir + "/../hypr/keybindings.conf", (_f) => {
+  CheatsheetJSON.setValue(getJSON());
+  print("triggered");
+});
 
-const CheatsheetContent = (column) => {
+const CheatsheetContent = (column: Section[]) => {
   const primary = "#4B5CA3";
   const accent = "#e97c63";
 
@@ -40,24 +41,29 @@ const CheatsheetContent = (column) => {
   });
 };
 
-const CheatsheetColumns = () => {
-  let children: Section[][] = [];
-  const chunk_size = 4;
-  const sections = CheatsheetJSON.value.length;
+const CheatsheetColumns = () =>
+  Widget.Box({
+    setup: (self) =>
+      self.hook(CheatsheetJSON, (self) => {
+        let children: Section[][] = [];
+        const chunk_size = 4;
+        const sections = CheatsheetJSON.value.length;
 
-  for (let i = 0; i < sections / chunk_size; i++) {
-    children.push(
-      CheatsheetJSON.value.slice(i * chunk_size, i * chunk_size + chunk_size),
-    );
-  }
+        for (let i = 0; i < sections / chunk_size; i++) {
+          children.push(
+            CheatsheetJSON.value.slice(
+              i * chunk_size,
+              i * chunk_size + chunk_size,
+            ),
+          );
+        }
 
-  return Widget.Box({
-    children: children.map((sections) => CheatsheetContent(sections)),
+        self.children = children.map((sections) => CheatsheetContent(sections));
+      }),
     spacing: 50,
     vertical: false,
     hpack: "center",
   });
-};
 
 const CheatsheetPanel = () =>
   Widget.Scrollable({
